@@ -386,3 +386,67 @@ footer {
     font-size: 0.75rem;
     color: #2c3e4e;
 }
+
+/* ===== FILTROS RÁPIDOS ===== */
+.filtros-rapidos {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0 1rem 1rem 1rem;
+}
+
+.filtro-btn {
+    background: #e2e8f0;
+    color: #1e293b;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto;
+    margin: 0;
+    box-shadow: none;
+    transition: 0.2s;
+}
+
+.filtro-btn:hover {
+    background: #cbd5e1;
+    transform: none;
+}
+
+.filtro-btn.active {
+    background: #2c7da0;
+    color: white;
+    border-color: #1f5068;
+}
+
+/* ===== BOTÓN EXCEL ===== */
+.btn-excel {
+    background: #15803d;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto;
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+.btn-excel:hover { background: #166534; transform: scale(0.98); }
+
+/* ===== INFO PERÍODO ===== */
+.periodo-info {
+    margin: 0 0 0.8rem 1rem;
+    padding: 0.5rem 1rem;
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    color: #1e3a8a;
+    display: inline-block;
+    font-weight: 500;
+}
