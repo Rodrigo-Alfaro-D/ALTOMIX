@@ -27,6 +27,16 @@
         <div class="brand-logo">ALTOMIX</div>
         <h3>📋 Historial de transacciones</h3>
 
+        <!-- Filtros rápidos -->
+        <div class="filtros-rapidos">
+            <button class="filtro-btn active" data-periodo="todos">📋 Todo</button>
+            <button class="filtro-btn" data-periodo="diario">📅 Hoy</button>
+            <button class="filtro-btn" data-periodo="semanal">🗓️ Últimos 7 días</button>
+            <button class="filtro-btn" data-periodo="mensual">📆 Este mes</button>
+            <button class="filtro-btn" data-periodo="mes-anterior">📆 Mes anterior</button>
+        </div>
+
+        <!-- Filtros personalizados -->
         <div class="filtros">
             <select id="filtroTipo">
                 <option value="todos">Todos los tipos</option>
@@ -35,7 +45,11 @@
             </select>
             <input type="date" id="filtroDesde" title="Desde">
             <input type="date" id="filtroHasta" title="Hasta">
+            <button id="btnExportarExcel" class="btn-excel">⬇️ Exportar a Excel</button>
         </div>
+
+        <!-- Indicador de período activo -->
+        <div id="periodoInfo" class="periodo-info"></div>
 
         <div style="overflow-x: auto;">
             <table id="tablaMovimientos">
@@ -47,12 +61,13 @@
                         <th>Forma pago</th>
                         <th>Tarjeta</th>
                         <th>Destino/Concepto</th>
+                        <th>Usuario</th>
                         <th>Monto</th>
                         <th style="width: 40px;"></th>
                     </tr>
                 </thead>
                 <tbody id="tbodyMovimientos">
-                    <tr><td colspan="8" style="text-align:center;">No hay registros aún</td></tr>
+                    <tr><td colspan="9" style="text-align:center;">No hay registros aún</td></tr>
                 </tbody>
             </table>
         </div>
@@ -70,6 +85,10 @@
                 <span>⚖️ Balance (Ventas - Compras)</span>
                 <span class="valor" id="balance">0</span>
             </div>
+            <div class="resumen-card">
+                <span>🧾 N° Movimientos</span>
+                <span class="valor" id="cantidadMovs">0</span>
+            </div>
         </div>
 
         <div style="display: flex; justify-content: flex-end; margin-top: 0.8rem; gap: 10px;">
@@ -77,9 +96,11 @@
         </div>
     </div>
 
-    <footer>© ALTOMIX — Los datos se guardan en tu navegador (localStorage).</footer>
+    <footer>© ALTOMIX — Exporta informes diarios, semanales, mensuales o por rango personalizado a Excel.</footer>
 </div>
 
+<!-- SheetJS: librería para generar Excel -->
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/informe.js"></script>
 </body>
