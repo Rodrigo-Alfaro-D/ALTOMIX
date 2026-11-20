@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTOMIX — Acceso</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="app-container">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="brand-logo">ALTOMIX</div>
+            <div class="login-icon">🔐</div>
+            <h2>Iniciar Sesión</h2>
+            <p class="login-subtitulo">Sistema de Registro de Compras y Ventas</p>
+
+            <form id="formLogin">
+                <div class="form-group">
+                    <label>👤 Usuario</label>
+                    <input type="text" id="usuarioInput" placeholder="Ej: Julia o Rodrigo" autocomplete="username" required>
+                </div>
+                <div class="form-group">
+                    <label>🔑 Clave</label>
+                    <input type="password" id="claveInput" placeholder="Tu clave de acceso" autocomplete="current-password" required>
+                </div>
+
+                <div id="loginError" class="login-error" style="display:none;">
+                    ❌ Usuario o clave incorrectos.
+                </div>
+
+                <button type="submit">Ingresar</button>
+            </form>
+
+            <p class="login-hint">Usuarios autorizados: <strong>Julia</strong> · <strong>Rodrigo</strong></p>
+        </div>
+    </div>
+
+    <footer>© ALTOMIX — Sistema de registro de compras y ventas</footer>
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    if (Auth.estaAutenticado()) {
+        window.location.href = "index.html";
+        return;
+    }
+
+    const form = document.getElementById("formLogin");
+    const error = document.getElementById("loginError");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const usuario = document.getElementById("usuarioInput").value;
+        const clave = document.getElementById("claveInput").value;
+
+        if (Auth.login(usuario, clave)) {
+            window.location.href = "index.html";
+        } else {
+            error.style.display = "block";
+            document.getElementById("claveInput").value = "";
+            document.getElementById("claveInput").focus();
+        }
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTOMIX — Informe</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<script src="js/auth.js"></script>
+<script>Auth.protegerPagina();</script>
+
+<div class="app-container">
+    <div class="user-bar">
+        👤 Conectado como: <strong id="usuarioActual">—</strong>
+        <button id="btnLogout" class="btn-logout">Cerrar sesión</button>
+    </div>
+
+    <div class="nav-bar">
+        <a href="index.html">🏠 Inicio</a>
+        <a href="ingresos.html" class="ventas-link">📈 Ingresos (Ventas)</a>
+        <a href="gastos.html">📉 Gastos (Compras)</a>
+        <a href="informe.html" class="active">📊 Informe</a>
+    </div>
+
+    <div class="tabla-container">
+        <div class="brand-logo">ALTOMIX</div>
+        <h3>📋 Historial de transacciones</h3>
+
+        <div class="filtros">
+            <select id="filtroTipo">
+                <option value="todos">Todos los tipos</option>
+                <option value="compra">Solo compras (gastos)</option>
+                <option value="venta">Solo ventas (ingresos)</option>
+            </select>
+            <input type="date" id="filtroDesde" title="Desde">
+            <input type="date" id="filtroHasta" title="Hasta">
+        </div>
+
+        <div style="overflow-x: auto;">
+            <table id="tablaMovimientos">
+                <thead>
+                    <tr>
+                        <th>Fecha/Hora</th>
+                        <th>Tipo</th>
+                        <th>Documento</th>
+                        <th>Forma pago</th>
+                        <th>Tarjeta</th>
+                        <th>Destino/Concepto</th>
+                        <th>Monto</th>
+                        <th style="width: 40px;"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyMovimientos">
+                    <tr><td colspan="8" style="text-align:center;">No hay registros aún</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="resumen">
+            <div class="resumen-card">
+                <span>📉 Total Compras</span>
+                <span class="valor" id="totalCompras">0</span>
+            </div>
+            <div class="resumen-card">
+                <span>📈 Total Ventas</span>
+                <span class="valor" id="totalVentas">0</span>
+            </div>
+            <div class="resumen-card">
+                <span>⚖️ Balance (Ventas - Compras)</span>
+                <span class="valor" id="balance">0</span>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 0.8rem; gap: 10px;">
+            <button id="limpiarTodoBtn" style="background:#475569; width: auto; padding: 0.5rem 1.2rem;">🗑️ Limpiar todo</button>
+        </div>
+    </div>
+
+    <footer>© ALTOMIX — Los datos se guardan en tu navegador (localStorage).</footer>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/informe.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTOMIX — Gastos (Compras)</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<script src="js/auth.js"></script>
+<script>Auth.protegerPagina();</script>
+
+<div class="app-container">
+    <div class="user-bar">
+        👤 Conectado como: <strong id="usuarioActual">—</strong>
+        <button id="btnLogout" class="btn-logout">Cerrar sesión</button>
+    </div>
+
+    <div class="nav-bar">
+        <a href="index.html">🏠 Inicio</a>
+        <a href="ingresos.html" class="ventas-link">📈 Ingresos (Ventas)</a>
+        <a href="gastos.html" class="active">📉 Gastos (Compras)</a>
+        <a href="informe.html">📊 Informe</a>
+    </div>
+
+    <div class="card compras" style="max-width:640px; margin: 0 auto;">
+        <div class="brand-logo">ALTOMIX</div>
+        <h2>📉 Registrar Compra (Gasto)</h2>
+        <form id="formCompra" novalidate>
+            <div class="form-group">
+                <label>📄 Tipo de documento</label>
+                <select id="tipoDocumento" required>
+                    <option value="Boleta">Boleta</option>
+                    <option value="Factura">Factura</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>💵 Forma de pago</label>
+                <select id="formaPagoCompra" required>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Transferencia">Transferencia</option>
+                    <option value="Credito">Crédito</option>
+                    <option value="Debito">Débito</option>
+                </select>
+            </div>
+            <div id="tarjetaContainerCompra" style="display: none;">
+                <div class="form-group">
+                    <label>💳 Marca / entidad de tarjeta</label>
+                    <input type="text" id="tarjetaCompra" placeholder="Ej: Visa, Mastercard, Naranja..." autocomplete="off">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>🏢 Destino de compra</label>
+                <select id="destinoCompra" required>
+                    <option value="Negocio">Negocio (comercial)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>💲 Monto de la compra</label>
+                <input type="number" id="montoCompra" step="0.01" placeholder="Ej: 49990" required>
+            </div>
+            <div class="form-group">
+                <label>📝 Descripción / Producto</label>
+                <input type="text" id="descCompra" placeholder="Ej: Notebook, mercadería, etc.">
+            </div>
+            <button type="submit" class="btn-compra">+ Agregar Compra</button>
+        </form>
+    </div>
+
+    <footer>© ALTOMIX — Los gastos se reflejan automáticamente en el <a href="informe.html">informe</a>.</footer>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/gastos.js"></script>
+</body>
+</html>

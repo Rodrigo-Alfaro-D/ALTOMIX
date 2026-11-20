@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTOMIX — Inicio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<script src="js/auth.js"></script>
+<script>Auth.protegerPagina();</script>
+
+<div class="app-container">
+    <div class="user-bar">
+        👤 Conectado como: <strong id="usuarioActual">—</strong>
+        <button id="btnLogout" class="btn-logout">Cerrar sesión</button>
+    </div>
+
+    <div class="nav-bar">
+        <a href="index.html" class="active">🏠 Inicio</a>
+        <a href="ingresos.html" class="ventas-link">📈 Ingresos (Ventas)</a>
+        <a href="gastos.html">📉 Gastos (Compras)</a>
+        <a href="informe.html">📊 Informe</a>
+    </div>
+
+    <div class="card" style="text-align:center; padding: 3rem 2rem;">
+        <div class="brand-logo brand-logo-lg">ALTOMIX</div>
+        <h2 style="border-left:none; justify-content:center; font-size:2rem;">📊 Registro de Compras y Ventas</h2>
+        <p style="color:#475569; max-width:600px; margin: 0 auto 2rem;">
+            Gestiona tus ingresos y gastos por separado, y consulta el informe general con balance en tiempo real.
+        </p>
+
+        <div class="dashboard-grid">
+            <a href="ingresos.html" class="dashboard-card">
+                <div class="icon">📈</div>
+                <h3>Ingresos</h3>
+                <p>Registrar ventas</p>
+            </a>
+            <a href="gastos.html" class="dashboard-card">
+                <div class="icon">📉</div>
+                <h3>Gastos</h3>
+                <p>Registrar compras</p>
+            </a>
+            <a href="informe.html" class="dashboard-card">
+                <div class="icon">📊</div>
+                <h3>Informe</h3>
+                <p>Historial y balance</p>
+            </a>
+        </div>
+    </div>
+
+    <footer>© ALTOMIX — Compra: boleta/factura + formas de pago. Venta: efectivo, transferencia, débito, crédito.</footer>
+</div>
+</body>
+</html>
